@@ -15,10 +15,15 @@ jobs:
 
       - name: Javascript Tools
         uses: Swanseatom/js-dynamic-methods-action@v1.0.0
+        if: js-dynamic-methods
         with:
-          value: Hello World
+          value: item1, item2, item3, item4
           type: string
-          method: toUpperCase
-          envVar: HELLO_WORLD
+          method: split
+          args: ","
+          argTypes: string
+          envVar: MY_ENV_VAR
       - name: test env var is set
-        run: echo "${{env.HELLO_WORLD}}"
+        run: echo "${{env.MY_ENV_VAR}}"
+      - name: test step output is set
+        run: echo "${{steps.js-dynamic-methods.outputs.result}}"
