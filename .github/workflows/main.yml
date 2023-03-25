@@ -1,0 +1,24 @@
+name: Actions testing
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  check-dist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Javascript Tools
+        uses: Swanseatom/js-dynamic-methods-action@v1.0.0
+        with:
+          value: Hello World
+          type: string
+          method: toUpperCase
+          envVar: HELLO_WORLD
+      - name: test env var is set
+        run: echo "${{env.HELLO_WORLD}}"
