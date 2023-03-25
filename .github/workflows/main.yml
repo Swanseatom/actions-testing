@@ -15,7 +15,7 @@ jobs:
 
       - name: Javascript Tools
         uses: Swanseatom/js-dynamic-methods-action@v1.0.0
-        if: js-dynamic-methods
+        id: js-dynamic-methods
         with:
           value: item1, item2, item3, item4
           type: string
