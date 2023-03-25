@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-dist:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +21,7 @@ jobs:
           type: string
           method: split
           args: ","
-          argTypes: string
+          argTypes: "string"
           envVar: MY_ENV_VAR
       - name: test env var is set
         run: echo "${{env.MY_ENV_VAR}}"
